@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Депозит - калькулятор</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet"/>
+ 
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+        <h1>Депозит - калькулятор</h1>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="first-payment" class="col-sm-4 col-xs-12 control-label">Первый вклад</label>
+            <div class="col-sm-8 col-xs-12">
+                <input type="number" class="form-control" id="first-payment" placeholder="Введите значение" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="replenishment" class="col-sm-4 col-xs-12 control-label ">Ежегодно</label>
+            <div class="col-sm-8 col-xs-12 ">
+                <input type="number" class="form-control" id="replenishment" placeholder="Введите значение" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="percent" class="col-sm-4 col-xs-12 control-label ">Годовые %</label>
+            <div class="col-sm-8 col-xs-12 ">
+                <input type="number" class="form-control" id="percent" placeholder="Введите значение" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="term" class="col-sm-4 col-xs-12 control-label ">Срок (лет)</label>
+            <div class="col-sm-8 col-xs-12  ">
+                <input type="number" class="form-control" id="term" placeholder="Введите значение" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8 col-xs-12  ">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="all-info"> Вывести информацию по годам
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button id="reset" type="submit" class="btn btn-default">Сброс</button>
+                <button id="submit" type="submit" class="btn btn-success">Расчитать</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="panel-group col-sm-offset-2 col-md-offset-3 col-sm-9  col-md-7" id="info-panel">
+        <div class="panel panel-success">
+            <div class="panel-heading"> Результат:</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12  text-right">Баланс счета:</div>
+                    <div class="col-sm-6 col-xs-12 " id="total"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 text-right">Собственные:</div>
+                    <div class="col-sm-6 col-xs-12" id="own"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 text-right">Накопленно:</div>
+                    <div class="col-sm-6 col-xs-12" id="accumulation"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 text-right">Прирост в год:</div>
+                    <div class="col-sm-6 col-xs-12" id="growth-year"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 text-right" >Прирост в месяц:</div>
+                    <div class="col-sm-6 col-xs-12" id="growth-month"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Год</th>
+                <th>Счет</th>
+                <th>Личные средства</th>
+                <th>Процент за год</th>
+                <th>Процент за все время</th>
+            </tr>
+        </thead>
+        <tbody id="table-content">
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Год</th>
+                <th>Счет</th>
+                <th>Личные средства</th>
+                <th>Процент за год</th>
+                <th>Процент за все время</th>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+</body>
+</html>
