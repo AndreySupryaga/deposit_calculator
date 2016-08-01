@@ -36,7 +36,7 @@ $(function(){
                     'percent': '',
                     'total_own':'',
                     'total_percent' : ''
-                }
+                };
                 one_year.percent = totalCount * (percent/100);
                 totalCount += totalCount * (percent/100);
                 one_year.count = totalCount;
@@ -89,10 +89,7 @@ $(function(){
      * -----------ГЕНЕРАЦИЯ И ВЫВОД ТАБЛИЦЫ
      */
 
-    $('#all-info').on('change',function(e) {
-        
-        console.log(this.checked)
-        
+    $('#all-info').on('change',function() {
        if(this.checked && infoArr.length > 0) infoYears ();
        else $('.table').fadeOut(500)
     });
@@ -121,13 +118,13 @@ $(function(){
         $('#info-panel').fadeOut(500);
         $(':checked').prop('checked',false);
         return false;
-    })
+    });
 
 
     $('.form-control').on('keypress', function(e){
         if((e.keyCode < 48 || e.keyCode > 57) && e.keyCode !== 46) e.preventDefault();
 
-    })
+    });
 
 
 });
